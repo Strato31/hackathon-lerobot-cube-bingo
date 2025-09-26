@@ -12,6 +12,12 @@ This fork is based on the v0.3.3 release, to which we applied several bug fixes 
 
 ## Datasets
 
+### Guidelines for collecting data
+From this [HF blog post](https://huggingface.co/blog/lerobot-datasets):
+
+<img width="1414" height="2000" alt="image" src="https://github.com/user-attachments/assets/3288375f-621b-4865-9a45-497b296d28a9" />
+
+
 ### Available on the Hugging Face Hub
 Browse all datasets: [HF Datasets](https://huggingface.co/datasets?other=LeRobot&sort=trending)
 
