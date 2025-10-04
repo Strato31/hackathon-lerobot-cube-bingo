@@ -7,6 +7,8 @@ Here you’ll find everything you need to get started: objectives, rules, tips, 
 
 The challenge: train a robot to pick up cubes and place them on a wooden board according to the instructions on a card.
 
+![](assets/example.gif)
+
 Sounds simple? In practice, it’s a tough robotics + learning task! Success depends on how strategically you build datasets, train models, and plan your approach.
 
 ### 🏆 Evaluation Rules & Scoring
