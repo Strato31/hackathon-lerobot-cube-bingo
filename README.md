@@ -88,7 +88,7 @@ Mark positions: If you set up a controlled environment, mark object positions (o
 - Varied environments = robustness but needs more data.
 - Curriculum strategy: Start with lots of Level 1 data, then gradually add Level 2, Level 3, etc. However, this is not an obligation. If you and your teammates want to win all or nothing we respect that!
 
-> [!INFORMATION]
+> [!NOTE]
 >💡 Check out the [dataset guidelines](#guidelines-for-collecting-data) for more details.
 
 ### ⏱️ Training Time Examples
