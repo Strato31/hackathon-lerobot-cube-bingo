@@ -203,7 +203,7 @@ lerobot-calibrate \
 ```
 
 > [!NOTE]
-> Using Powershell you should replace the "\" with "`", and using the shell with "^"
+> Using Powershell you should replace the " \ " with "`", and using the shell with "^"
 
 For the calibration itself, the easiest is to follow the video in the dedicated section in this [tutorial](https://huggingface.co/docs/lerobot/so101#calibrate).
 
