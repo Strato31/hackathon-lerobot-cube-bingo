@@ -129,6 +129,9 @@ We provide here the instructions for the training supposing you will use one of 
 > [!NOTE]
 > Training can be tested independently of data recording, since we provide you with a ready-to-use dataset.
 
+> [!WARNING]
+> We advise to seriously read the [dataset guidelines section](#guidelines-for-collecting-data) and this [blog post](https://huggingface.co/blog/sherryxychen/train-act-on-so-101) before recording your dataset.
+
 ### 🖥️ Setup for Recording on Windows
 
 1. Install FFmpeg
@@ -410,11 +413,12 @@ CUDA_VISIBLE_DEVICE="id_of_your_gpu" lerobot-train \
   --output_dir=/output_dir_with_space/train/act_so101_test \
   --job_name=act_so101_test \
   --policy.device=cuda \
-  --wandb.enable=true \
   --policy.push_to_hub=false \
   --batch_size=64 \
   --save_freq=100 \
-  --steps=200
+  --steps=200 \
+  --wandb.enable=true \
+  --wandb.disable_artifact=true
 ```
 
 As a test you can run the following script with `dataset.repo_id=DEEL-AI/Hackathon_Team0Z`. (Don't forget to download it with `hf download DEEL-AI/Hackathon_Team0Z --repo-type dataset`)
@@ -431,8 +435,9 @@ lerobot-train \
   --resume=true \
   --policy.device=cuda \
   --policy.push_to_hub=false \
-  --wandb.enable=true \
   --steps=400 \
+  --wandb.enable=true \
+  --wandb.disable_artifact=true
 ```
 
 > [!WARNING]
@@ -459,10 +464,11 @@ lerobot-train \
   --job_name=smolvla_so101_test \
   --policy.device=cuda \
   --policy.push_to_hub=false \
-  --wandb.enable=true \
   --batch_size=64 \
   --steps=400 \
-  --save_freq=200
+  --save_freq=200 \
+  --wandb.enable=true \
+  --wandb.disable_artifact=true
 ```
 
 As a test you can run the following script with `dataset.repo_id=DEEL-AI/Hackathon_Team0Z`
@@ -475,8 +481,9 @@ lerobot-train \
   --resume=true \
   --policy.device=cuda \
   --policy.push_to_hub=false \
-  --wandb.enable=true \
   --steps=400 \
+  --wandb.enable=true \
+  --wandb.disable_artifact=true
 ```
 
 ### Inference on Windows
