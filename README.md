@@ -34,7 +34,7 @@ Here you’ll find everything you need to get started: objectives, rules, tips, 
 
 ## 🎯 Task Overview
 
-The challenge: teach a robot arm to place 1, 2, or 3 colored cubes onto a 2×2 wooden grid by reading a small landmark card that shows, for each cube color, a colored cross on the target cell.
+The challenge: teach a robot arm to place 1, 2, or 3 colored cubes onto a 2×2 wooden grid by reading a small reference card that shows, for each cube color, a colored cross on the target cell.
 
 ![](assets/example.gif)
 > [!WARNING]
