@@ -5,56 +5,42 @@ Here you’ll find everything you need to get started: objectives, rules, tips, 
 
 ## 🎯 Task Overview
 
-> [!WARNING]
-> ⚠️ WIP section: New task
-
-The challenge: train a robot to pick up cubes and place them on a wooden board according to the instructions on a card.
+The challenge: teach a robot arm to place 1, 2, or 3 colored cubes onto a 2×2 wooden grid by reading a small landmark card that shows, for each cube color, a colored cross on the target cell.
 
 ![](assets/example.gif)
+> [!WARNING]
+> **TODO:** Update deprecated GIF with new task!!
 
-Sounds simple? In practice, it’s a tough robotics + learning task! Success depends on how strategically you build datasets, train models, and plan your approach.
+Sounds simple? In practice, it’s a tough robotics + learning task! Success depends on how strategically you build datasets (coverage & curriculum), train models, and plan your approach.
 
 ### 🏆 Evaluation Rules & Scoring
 
-Your robot will be evaluated over 5 levels of increasing difficulty.
+Your robot will be evaluated over 4 levels of increasing difficulty.
 Each level has 5 trials. You must succeed on at least 3/5 trials to unlock the next level.
-
-> [!WARNING]
-> ⚠️ WIP section: New task
 
 <img width="600" alt="hackathon levels" src="assets/hackathon.drawio.png" />
 
-**Level 1** – Basic Grasping
+**Level 1 — Single Color, Fixed Position**
 
-Task: Pick up a cube and place it in the middle of the board in ≤ 20s.
+Task: Pick up one cube of a single color and place it on the same target cell every time (as indicated by the card) in ≤ 20s.  
+Scoring: 5 points per success (+5 bonus if the cube is grasped on the first attempt).
 
-Scoring: 5 points per success (+5 bonus if the cube is caught on the first attempt).
+**Level 2 — Single Cube, Varying Positions**
 
-**Level 2** – Precise Placement
+Task: Pick up one cube and place it on the correct cell (varies across trials per the card) in ≤ 20s.  
+Scoring: 10 points per success (+5 bonus for first-attempt grasps).
 
-Task: Pick up a cube and place it in the correct location on the board in ≤ 20s.
+**Level 3 — Two Colored Cubes, Varying Positions**
 
-Scoring: 10 points per success (+5 bonus for first-attempt catches).
-
-**Level 3** – Two-Cube Challenge
-
-Task: Pick and place 2 cubes correctly in ≤ 30s.
-
+Task: Pick and place 2 cubes of different colors on their respective target cells (per the card) in ≤ 30s.  
 Scoring: 30 points per success.
 
 > [!NOTE]
 > 💡 Adding the second cube too early in your dataset may make Levels 1 & 2 harder.
 
-**Level 4** – Three-Cube Challenge
+**Level 4 — Three Colored Cubes, Varying Positions**
 
-Task: Pick and place 3 cubes correctly in ≤ 30s.
-
-Scoring: 40 points per success.
-
-**Level 5** – Vision + Reasoning
-
-Task: Pick and place 3 cubes in ≤ 30s without being told positions explicitly (the robot must read and interpret the card).
-
+Task: Pick and place 3 cubes of different colors on their respective target cells (per the card) in ≤ 30s.  
 Scoring: 50 points per success.
 
 > [!WARNING]
@@ -112,7 +98,7 @@ Mark positions: If you set up a controlled environment, mark object positions (o
 
 ### ✅ Key Takeaways
 
-- Think strategically: scoring is incremental, don’t rush for Level 5.
+- Think strategically: scoring is incremental, don’t rush for Level 4.
 - Save checkpoints and test early & often.
 - Teamwork matters as much as models: rotate recording, share insights.
 - Remember: the goal is to learn, experiment, and have fun 🎉
@@ -366,7 +352,7 @@ lerobot-record \
     --dataset.root='path_to_locally_save_the_ds' \
     --dataset.repo_id='DEEL-AI/Hackathon_TeamXX' \
     --dataset.num_episodes=25 \ # Number of episodes you will record at once
-    --dataset.single_task="Pick and place one green cube at the middle of the 3 by 3 grid." \ # <-- can be adapted but most follow the guidelines in the dataset section
+    --dataset.single_task="Pick and place one green cube on the cell indicated by the card on a 2×2 grid." \ # <-- can be adapted but most follow the guidelines in the dataset section
     --dataset.push_to_hub=True \
     --resume=false \ # <-- Set to true once it has been initialized
 ```
@@ -375,7 +361,7 @@ lerobot-record \
 > Change `--resume` to `true` **after your first recording**.
 
 > [!NOTE]
-> You can change the `--dataset.single_task` to change the command prompt. For example "Pick and place one green cube at the top-left of the 3 by 3 grid.""
+> You can change the `--dataset.single_task` to change the command prompt. For example "Pick and place one green cube on the top-left cell of a 2×2 grid (as shown on the card)."
 
 **BEFORE RECORDING**, take a look at the [dataset guidelines](#guidelines-for-collecting-data).
 
@@ -533,7 +519,7 @@ lerobot-record  ^
     --teleop.id=leader_l0 \
     --teleop.calibration_dir="path\to\lerobot-hackathon\calibration\teleoperators\so101_leader" \
     --display_data=true \
-    --dataset.single_task="Pick and place one green cube at the middle of the 3 by 3 grid." ^
+    --dataset.single_task="Pick and place one green cube on the cell indicated by the card on a 2×2 grid." ^
     --dataset.root='./eval_hackathon_9_cubes_v1' ^
     --dataset.repo_id='DEEL-AI/eval_Hackathon_TeamXX' ^
     --dataset.push_to_hub=false ^
