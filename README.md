@@ -134,28 +134,44 @@ We provide here the instructions for the training supposing you will use one of 
 
 ### 🖥️ Setup for Recording on Windows
 
-1. Install FFmpeg
+**1. Install FFmpeg**
 
 Open PowerShell and run:
 ```shell
 winget install ffmpeg
 ```
 
-2. Clone the Repository
+**2. Clone the Repository**
 
 ```shell
 git clone git@github.com:deel-ai/lerobot-hackathon.git
 cd lerobot-hackathon
 ```
 
-3. Create and Activate Conda Environment
+**3. Create and Activate Conda Environment**
 
 ```shell
 conda create -y -n lerobot python=3.10
 conda activate lerobot
 ```
 
-4. Install Dependencies
+**4. Install PyTorch with the correct CUDA version**
+
+First, check your CUDA version using the command:
+
+```bash
+nvidia-smi
+```
+
+Then, install torch and torchvision for the corresponding CUDA version by following the official [PyTorch installation guide](https://pytorch.org/get-started/locally/).
+
+For example, if your CUDA version is 12.4, run:
+
+```bash
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+```
+
+**5. Install Dependencies**
 
 ```shell
 pip install -e .
