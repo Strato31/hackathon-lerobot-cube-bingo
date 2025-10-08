@@ -291,7 +291,7 @@ If it is still not working → **redo calibration**.
 > [!WARNING]
 > **Troubleshooting — Motors blinking red / not detected.** 
 >
-> If a motor LED blinks red or a motor is not detected when starting teleoperation, recording, or inference, it may be an overheating protection state (see related discussion in the LeRobot repo, [issue #1585](https://github.com/huggingface/lerobot/issues/1585)).
+> If a motor LED blinks red or a motor is not detected when starting teleoperation, recording, or inference, it may be an overheating protection state (see related discussion in the LeRobot repo, [issue #441](https://github.com/huggingface/lerobot/issues/441)).
 >
 > **Quick fix that worked for us:**
 > 1. Power off the affected arm (disconnect the arm’s power).
