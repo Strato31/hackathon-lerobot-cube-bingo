@@ -118,9 +118,9 @@ Mark positions: If you set up a controlled environment, mark object positions (o
 
 ### ⏱️ Training Time Examples
 
-- ACT: 150 episodes, 60k steps, RTX3090, batchsize 16 → ~6 hours
-- SmolVLA: ~2k steps → TODO
-- Pi0.5: ~2k steps → TODO
+- ACT (RTX 4090): batch size 32, 100k steps → ~7h
+- SmolVLA (RTX 4090): batch size 64, 20k steps → ~7 h
+- Pi0.5: TBD
 
 > [!NOTE]
 > ⚠️ Loss curves may not always reflect real-world performance. Save checkpoints often and test on the robot!
@@ -471,8 +471,8 @@ CUDA_VISIBLE_DEVICE="id_of_your_gpu" lerobot-train \
   --policy.device=cuda \
   --policy.push_to_hub=false \
   --batch_size=64 \
-  --save_freq=100 \
-  --steps=200 \
+  --save_freq=10000 \
+  --steps=100000 \
   --wandb.enable=true \
   --wandb.disable_artifact=true
 ```
@@ -491,13 +491,13 @@ lerobot-train \
   --resume=true \
   --policy.device=cuda \
   --policy.push_to_hub=false \
-  --steps=400 \
+  --steps=200000 \
   --wandb.enable=true \
   --wandb.disable_artifact=true
 ```
 
 > [!WARNING]
-> Here `--steps` is not the number of additional steps you want to do. Is the number of steps it must reach from the CKPT step you provided.
+> Here `--steps` is not the number of additional steps you want to do. It is the number of steps it must reach from the CKPT step you provided.
 
 
 #### Training with SmolVLA
@@ -521,8 +521,8 @@ lerobot-train \
   --policy.device=cuda \
   --policy.push_to_hub=false \
   --batch_size=64 \
-  --steps=400 \
-  --save_freq=200 \
+  --steps=20000 \
+  --save_freq=5000 \
   --wandb.enable=true \
   --wandb.disable_artifact=true
 ```
@@ -537,7 +537,7 @@ lerobot-train \
   --resume=true \
   --policy.device=cuda \
   --policy.push_to_hub=false \
-  --steps=400 \
+  --steps=40000 \
   --wandb.enable=true \
   --wandb.disable_artifact=true
 ```
