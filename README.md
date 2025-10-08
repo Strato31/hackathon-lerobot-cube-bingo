@@ -285,6 +285,19 @@ lerobot-teleoperate \
 A `rerun.io` window should open. The follower arm must match the leader precisely. In case of lags, trying killing unnecessary processes.  
 If it is still not working → **redo calibration**.
 
+> [!WARNING]
+> **Move joints slowly during calibration.** Fast manual motions can trigger motor faults or overheating protection, which may later cause detection issues during teleop/record/inference.
+
+> [!WARNING]
+> **Troubleshooting — Motors blinking red / not detected.** 
+>
+> If a motor LED blinks red or a motor is not detected when starting teleoperation, recording, or inference, it may be an overheating protection state (see related discussion in the LeRobot repo, [issue #1585](https://github.com/huggingface/lerobot/issues/1585)).
+>
+> **Quick fix that worked for us:**
+> 1. Power off the affected arm (disconnect the arm’s power).
+> 2. Wait a few seconds.
+> 3. Power it back on and retry.
+
 #### 🎥 Adding Cameras
 
 1. Plug cameras into your computer.
@@ -331,13 +344,17 @@ lerobot-teleoperate \
     --robot.port="COM5" \
     --robot.id="follower_f0" \
     --robot.calibration_dir="path\to\lerobot-hackathon\calibration\robots\so101_follower" \
-    --robot.cameras="{ left: {type: opencv, index_or_path: 0, width: 1280, height: 720, fps: 30},  front: {type: opencv, index_or_path: 2, width: 1280, height: 720, fps: 30}}" ^ # <-- Your setting
+    --robot.cameras="{ left: {type: opencv, index_or_path: 0, width: 640, height: 480, fps: 30},  front: {type: opencv, index_or_path: 2, width: 640, height: 480, fps: 30}}" ^ # <-- Your setting
     --teleop.type=so101_leader \
     --teleop.port="COM4" \
     --teleop.id="leader_l0" \
     --teleop.calibration_dir="path\to\lerobot-hackathon\calibration\teleoperators\so101_leader" \
     --display_data=true
 ```
+
+> [!TIP]
+> **Performance & latency:** We strongly recommend 480p (width=640, height=480) for each camera.  
+> With 2 cameras at ≥720p, we observed choppy teleoperation/inference that severely hurts success rates. 480p keeps streams smooth while preserving enough detail for the task.
 
 You should now "see" what your robots is seeing in the `rerun.io` window. It will be useful to use that vision before actually recording data to place them as you wish.
 
@@ -377,7 +394,7 @@ lerobot-record \
     --teleop.id=leader_l0 \
     --teleop.calibration_dir="path\to\lerobot-hackathon\calibration\teleoperators\so101_leader" \
     --display_data=true \
-    --robot.cameras="{ left: {type: opencv, index_or_path: 0, width: 1280, height: 720, fps: 30},  front: {type: opencv, index_or_path: 2, width: 1280, height: 720, fps: 30}}"  \ # <-- Change with your setting
+    --robot.cameras="{ left: {type: opencv, index_or_path: 0, width: 640, height: 480, fps: 30},  front: {type: opencv, index_or_path: 2, width: 640, height: 480, fps: 30}}"  \ # <-- Change with your setting
     --dataset.root='path_to_locally_save_the_ds' \
     --dataset.repo_id='DEEL-AI/Hackathon_TeamXX' \
     --dataset.num_episodes=25 \ # Number of episodes you will record at once
@@ -542,7 +559,7 @@ lerobot-record  ^
     --robot.port='COM5' \
     --robot.id=follower_f0 \
     --robot.calibration_dir="path\to\lerobot-hackathon\calibration\robots\so101_follower" \
-    --robot.cameras="{ left: {type: opencv, index_or_path: 0, width: 1280, height: 720, fps: 30},  front: {type: opencv, index_or_path: 2, width: 1280, height: 720, fps: 30}}"  \ # <-- Change with your setting
+    --robot.cameras="{ left: {type: opencv, index_or_path: 0, width: 640, height: 480, fps: 30},  front: {type: opencv, index_or_path: 2, width: 640, height: 480, fps: 30}}"  \ # <-- Change with your setting
     --teleop.type=so101_leader \
     --teleop.port='COM4' \
     --teleop.id=leader_l0 \
