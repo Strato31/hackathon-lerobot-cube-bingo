@@ -3,6 +3,35 @@
 Welcome to the DEEL France–Québec Hackathon repository 🎉
 Here you’ll find everything you need to get started: objectives, rules, tips, and resources to make the most out of this exciting challenge.
 
+<a id="top"></a>
+
+<details>
+<summary><strong>📚 Table of contents</strong></summary>
+
+- [🎯 Task Overview](#-task-overview)
+- [🏆 Evaluation Rules & Scoring](#-evaluation-rules--scoring)
+- [🗓️ Schedule](#%EF%B8%8F-schedule)
+- [🔍 Tips & Recommendations](#-tips--recommendations)
+- [⏱️ Training Time Examples](#%EF%B8%8F-training-time-examples)
+- [✅ Key Takeaways](#-key-takeaways)
+- [⚙️ Setup Instructions](#%EF%B8%8F-setup-instructions)
+  - [📂 Source Code](#-source-code)
+  - [🖥️ Setup for Recording on Windows](#%EF%B8%8F-setup-for-recording-on-windows)
+    - [🔧 Robot Calibration](#-robot-calibration)
+    - [🎥 Adding Cameras](#-adding-cameras)
+    - [🎙️ Recording Data](#%EF%B8%8F-recording-data)
+  - [🖥️ Setup for Training with DEEL's machines](#%EF%B8%8F-setup-for-training-with-deels-machines)
+    - [Training with ACT](#training-with-act)
+    - [Training with SmolVLA](#training-with-smolvla)
+  - [Inference on Windows](#inference-on-windows)
+- [📊 Datasets](#datasets)
+  - [Guidelines for collecting data](#guidelines-for-collecting-data)
+  - [Available on the Hugging Face Hub](#available-on-the-hugging-face-hub)
+  - [Streaming](#streaming)
+- [🧭 TODO](#todo)
+
+</details>
+
 ## 🎯 Task Overview
 
 The challenge: teach a robot arm to place 1, 2, or 3 colored cubes onto a 2×2 wooden grid by reading a small landmark card that shows, for each cube color, a colored cross on the target cell.
