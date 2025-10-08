@@ -5,6 +5,9 @@ Here you’ll find everything you need to get started: objectives, rules, tips, 
 
 ## 🎯 Task Overview
 
+> [!WARNING]
+> ⚠️ WIP section: New task
+
 The challenge: train a robot to pick up cubes and place them on a wooden board according to the instructions on a card.
 
 ![](assets/example.gif)
@@ -15,6 +18,11 @@ Sounds simple? In practice, it’s a tough robotics + learning task! Success dep
 
 Your robot will be evaluated over 5 levels of increasing difficulty.
 Each level has 5 trials. You must succeed on at least 3/5 trials to unlock the next level.
+
+> [!WARNING]
+> ⚠️ WIP section: New task
+
+<img width="600" alt="hackathon levels" src="assets/hackathon.drawio.png" />
 
 **Level 1** – Basic Grasping
 
