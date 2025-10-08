@@ -586,9 +586,9 @@ For testing, we provide a sample policy that you can run before training your ow
 
 ### Guidelines for collecting data
 
-From this [HF blog post](https://huggingface.co/blog/lerobot-datasets):
+From this [HF blog post](https://huggingface.co/blog/lerobot-datasets) (but we changed the resolution tip):
 
-<img width="1414" height="2000" alt="image" src="https://github.com/user-attachments/assets/3288375f-621b-4865-9a45-497b296d28a9" />
+<img width="1414" height="2000" alt="updated_dataset_recommendations" src="https://github.com/user-attachments/assets/f165feed-7ee3-4643-8cf1-f8cc4abf9fe4" />
 
 
 ### Available on the Hugging Face Hub
