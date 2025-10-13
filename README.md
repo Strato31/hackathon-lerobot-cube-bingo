@@ -36,10 +36,6 @@ Here you’ll find everything you need to get started: objectives, rules, tips, 
 
 The challenge: teach a robot arm to place 1, 2, or 3 colored cubes onto a 2×2 wooden grid by reading a small reference card that shows, for each cube color, a colored cross on the target cell.
 
-![](assets/example.gif)
-> [!WARNING]
-> **TODO:** Update deprecated GIF with new task!!
-
 Sounds simple? In practice, it’s a tough robotics + learning task! Success depends on how strategically you build datasets (coverage & curriculum), train models, and plan your approach.
 
 ### 🏆 Evaluation Rules & Scoring
@@ -598,29 +594,56 @@ Browse all datasets: [HF Datasets](https://huggingface.co/datasets?other=LeRobot
 **Visualize a LeRobot Dataset**
 Use the interactive tool: [HF Robot Viz Space](https://huggingface.co/spaces/lerobot/visualize_dataset)
 
-### Streaming
+You can also use the local commands as described here:
 
-Official documentation: [HF Docs on Dataset Streaming](https://huggingface.co/docs/datasets/stream)
+- Visualize data stored on a local machine:
+```
+local$ lerobot-dataset-viz \
+    --repo-id lerobot/pusht \
+    --episode-index 0
+```
 
-**Streaming LeRobot Dataset**
-TODO
+- Visualize data stored on a distant machine with a local viewer:
+```
+distant$ lerobot-dataset-viz \
+    --repo-id lerobot/pusht \
+    --episode-index 0 \
+    --save 1 \
+    --output-dir path/to/directory
+
+local$ scp distant:path/to/directory/lerobot_pusht_episode_0.rrd .
+local$ rerun lerobot_pusht_episode_0.rrd
+```
+
+- Visualize data stored on a distant machine through streaming:
+(You need to forward the websocket port to the distant machine, with
+`ssh -L 9087:localhost:9087 username@remote-host`)
+```
+distant$ lerobot-dataset-viz \
+    --repo-id lerobot/pusht \
+    --episode-index 0 \
+    --mode distant \
+    --ws-port 9087
+
+local$ rerun ws://localhost:9087
+```
 
 ## TODO
 
 ### Logistics
-- [ ] At least 1 core member with a full setup per team (??/8)
-- [ ] Make cross-validation of produced code
-- [ ] Build the teams
+- [x] At least 1 core member with a full setup per team (7/7)
+- [x] Make cross-validation of produced code
+- [x] Build the teams
 - [x] 4 Developers
 - [x] 4 Testers
 
 ### Hardware
-- [x] Print all the Leader (8/8)
-- [ ] Print all the Follower (6/8)
-- [ ] Prepare a notice to be able to calibrate arms correctly
+- [x] Print all the Leader (7/7)
+- [x] Print all the Follower (7/7)
+- [x] Prepare a notice to be able to calibrate arms correctly
 - [x] Prepare a notice to set machines to record data
-- [ ] Print parts for the Camera
-- [ ] Prepare the WoodBoards (2/7)
+- [x] Print parts for the Camera
+- [x] Prepare the WoodBoards (7/7)
 
 ### Datasets
 - [x] Define the best way to handle the generated datasets (per team)
