@@ -355,10 +355,13 @@ lerobot-teleoperate \
 You should now "see" what your robots is seeing in the `rerun.io` window. It will be useful to use that vision before actually recording data to place them as you wish.
 
 #### 🎙️ Recording Data
-Once you are happy with your installation setting you are now ready to record data. 
+Once you are happy with your installation setting, you are now ready to record data. 
 
-Each team has a Hugging Face dataset repo:  
+Each team should create a Hugging Face dataset repo:  
 `DEEL-AI/Hackathon_TeamXX`
+
+> [!NOTE]
+> If you do not have the rights to write for the DEEL-AI organization please come see us! 
 
 **Keyboard Shortcuts During Recording**
 
