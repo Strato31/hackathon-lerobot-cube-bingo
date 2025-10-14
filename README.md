@@ -462,7 +462,7 @@ hf download DEEL-AI/Hackathon_TeamXX --repo-type dataset
 #### Training with ACT
 
 ```shell
-CUDA_VISIBLE_DEVICE="id_of_your_gpu" lerobot-train \
+CUDA_VISIBLE_DEVICES=id_of_your_gpu lerobot-train \
   --dataset.repo_id=DEEL-AI/Hackathon_TeamXX \
   --policy.type=act \
   --output_dir=/output_dir_with_space/train/act_so101_test \
