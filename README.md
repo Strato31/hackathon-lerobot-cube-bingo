@@ -1,40 +1,30 @@
-# 🤖 Hackathon DEEL France–Québec
+# 🤖 ISAE-SUPAERO SDD HACKATHON 2026
 
-Welcome to the DEEL France–Québec Hackathon repository 🎉
-Here you’ll find everything you need to get started: objectives, rules, tips, and resources to make the most out of this exciting challenge.
+Welcome to the ISAE-SUPAERO SDD HACKATHON 2026 repository 🎉
+
+Here you’ll find everything you need to get started: objectives, rules, tips, and resources to make the most out of this exciting challenge!
 
 <a id="top"></a>
 
 <details>
 <summary><strong>📚 Table of contents</strong></summary>
 
-- [🎯 Task Overview](#-task-overview)
-- [🏆 Evaluation Rules & Scoring](#-evaluation-rules--scoring)
-- [🗓️ Schedule](#%EF%B8%8F-schedule)
-- [🔍 Tips & Recommendations](#-tips--recommendations)
-- [⏱️ Training Time Examples](#%EF%B8%8F-training-time-examples)
-- [✅ Key Takeaways](#-key-takeaways)
-- [⚙️ Setup Instructions](#%EF%B8%8F-setup-instructions)
-  - [📂 Source Code](#-source-code)
-  - [🖥️ Setup for Recording on Windows](#%EF%B8%8F-setup-for-recording-on-windows)
-    - [🔧 Robot Calibration](#-robot-calibration)
-    - [🎥 Adding Cameras](#-adding-cameras)
-    - [🎙️ Recording Data](#%EF%B8%8F-recording-data)
-  - [🖥️ Setup for Training with DEEL's machines](#%EF%B8%8F-setup-for-training-with-deels-machines)
-    - [Training with ACT](#training-with-act)
-    - [Training with SmolVLA](#training-with-smolvla)
-  - [Inference on Windows](#inference-on-windows)
-- [📊 Datasets](#datasets)
-  - [Guidelines for collecting data](#guidelines-for-collecting-data)
-  - [Available on the Hugging Face Hub](#available-on-the-hugging-face-hub)
-  - [Streaming](#streaming)
-- [🧭 TODO](#todo)
+- [🤖 ISAE-SUPAERO SDD HACKATHON 2026](#-isae-supaero-sdd-hackathon-2026)
+  - [🎯 Task Overview](#-task-overview)
+    - [🏆 Evaluation Rules \& Scoring](#-evaluation-rules--scoring)
+    - [🗓️ Schedule recommendations](#️-schedule-recommendations)
+    - [🔍 Tips \& Recommendations](#-tips--recommendations)
+    - [✅ Key Takeaways](#-key-takeaways)
+  - [⚙️ 2. Setup Instructions](#️-2-setup-instructions)
+  - [🎙️ 3. Data recording](#️-3-data-recording)
+  - [⏱️ 4. Model training](#️-4-model-training)
+  - [5. Inference](#5-inference)
 
 </details>
 
 ## 🎯 Task Overview
 
-The challenge: teach a robot arm to place 1, 2, or 3 colored cubes onto a 2×2 wooden grid by reading a small reference card that shows, for each cube color, a colored cross on the target cell.
+The challenge: teach a robot arm to place 1, 2, or 3 colored cubes onto a 2×2 wooden grid. Each cube should be placed in the cell of the corresponding colored cross.
 
 Sounds simple? In practice, it’s a tough robotics + learning task! Success depends on how strategically you build datasets (coverage & curriculum), train models, and plan your approach.
 
@@ -47,53 +37,56 @@ Each level has 5 trials. You must succeed on at least 3/5 trials to unlock the n
 
 **Level 1 — Single Color, Fixed Position**
 
-Task: Pick up one cube of a single color and place it on the same target cell every time (as indicated by the card) in ≤ 20s.  
+Task: Pick up one cube of a single color and place it on the same target cell every time (as indicated by the card) in ≤ 20s.
 Scoring: 5 points per success (+5 bonus if the cube is grasped on the first attempt).
 
 **Level 2 — Single Cube, Varying Positions**
 
-Task: Pick up one cube and place it on the correct cell (varies across trials per the card) in ≤ 20s.  
+Task: Pick up one cube and place it on the correct cell (position varies across trials) in ≤ 20s.
 Scoring: 10 points per success (+5 bonus for first-attempt grasps).
 
 **Level 3 — Two Colored Cubes, Varying Positions**
 
-Task: Pick and place 2 cubes of different colors on their respective target cells (per the card) in ≤ 30s.  
+Task: Pick and place 2 cubes of different colors on their respective target cells in ≤ 30s.
 Scoring: 30 points per success.
-
-> [!NOTE]
-> 💡 Adding the second cube too early in your dataset may make Levels 1 & 2 harder.
 
 **Level 4 — Three Colored Cubes, Varying Positions**
 
-Task: Pick and place 3 cubes of different colors on their respective target cells (per the card) in ≤ 30s.  
+Task: Pick and place 3 cubes of different colors on their respective target cells in ≤ 30s.
 Scoring: 50 points per success.
 
 > [!WARNING]
-> ⚠️ Reality check: With only 2 days, even reaching Level 2 is a big success!
+> ⚠️ Reality check: With only 2-3 days, even reaching Level 2 is a big success!
 
-### 🗓️ Schedule
+### 🗓️ Schedule recommendations
 
 **Day 1**
 
-09:00–09:15: Hackathon intro
+09:00: 🟢 Official start!
 
-09:15–09:45: Team meet-up & strategy discussion
+11:30 Run first training tests to verify dataset format, logging, and checkpoints.
 
-09:45: 🟢 Official start!
+14:00 Test inference from early checkpoints.
 
-11:00 (recommended): Run first training tests to verify dataset format, logging, and checkpoints.
-
-12:00 (recommended): Test inference from early checkpoints.
-
-18:00: First evaluation attempt (even with partial training).
+17:30: First evaluation attempt (even with partial training).
 
 **Day 2**
 
-09:00: Evaluation with overnight training results
+09:00: Evaluation with overnight training results on first levels.
 
-16:30: Final evaluations & team presentations (strategies, results, lessons learned)
+17:30: Preliminary evaluation on more difficult levels.
 
-17:30: Clean-up and prep for MobiliT.AI poster session
+**Day 3**
+
+09:00 Evaluation with overnight training results on more difficult levels.
+
+11:00 Final evaluations & videos for wrap-up presentations.
+
+12:00 Pizza time 🍕
+
+14:00-16:00: Preparation of team presentations (strategies, results, lessons learned). No more access to the robot setups.
+
+16:00-17:00: Final wrap-up session of the hackathon.
 
 ### 🔍 Tips & Recommendations
 
@@ -112,14 +105,6 @@ Mark positions: If you set up a controlled environment, mark object positions (o
 > [!NOTE]
 >💡 Check out the [dataset guidelines](#guidelines-for-collecting-data) for more details.
 
-### ⏱️ Training Time Examples
-
-- ACT (RTX 4090): batch size 32, 100k steps → ~7h
-- SmolVLA (RTX 4090): batch size 64, 20k steps → ~7 h
-- Pi0.5: TBD
-
-> [!NOTE]
-> ⚠️ Loss curves may not always reflect real-world performance. Save checkpoints often and test on the robot!
 
 ### ✅ Key Takeaways
 
@@ -128,432 +113,46 @@ Mark positions: If you set up a controlled environment, mark object positions (o
 - Teamwork matters as much as models: rotate recording, share insights.
 - Remember: the goal is to learn, experiment, and have fun 🎉
 
-## ⚙️ Setup Instructions
+## ⚙️ 2. Setup Instructions
 
-This guide explains how to prepare your environment for the DEEL France–Québec Hackathon.  
-We cover three main scenarios:
-1. Recording data on a **Windows machine**.
-2. Training models on **DEEL’s cluster machines**.
-3. Running **inference on Windows** with your trained checkpoints.
+Two environments should be set:
 
-### 📂 Source Code
+- one on your local machine for data recording and inference,
+- a second one on a remote GPU machine for model training.
 
-For the hackathon, we provide a dedicated fork of Hugging Face’s [LeRobot](https://github.com/huggingface/lerobot/tree/main) repository.
+Follow the setup instructions for both systems in
+[setup_instructions.md](./setup_instructions.md).
 
-👉 Use the [custom repository](https://github.com/deel-ai/lerobot-hackathon) as your codebase.
+## 🎙️ 3. Data recording
 
-You can distinguish at least two installations settings. The minimum installation on Windows for recording the data and for inference, and the setup for training a model.
-We provide here the instructions for the training supposing you will use one of the machines prodvided to you on the DEEL's cluster. If you want to do it in your own environment some adaptation may be needed.
+When the setup is ready on your local machine, you can start recording episodes for your
+dataset. Follow the instructions and tips in [data_recording.md](./data_recording.md).
 
-> [!NOTE]
-> Training can be tested independently of data recording, since we provide you with a ready-to-use dataset.
+## ⏱️ 4. Model training
 
-> [!WARNING]
-> We advise to seriously read the [dataset guidelines section](#guidelines-for-collecting-data) and this [blog post](https://huggingface.co/blog/sherryxychen/train-act-on-so-101) before recording your dataset.
+Once data is recorded, you can train a model on the remote machine. We provide a toy
+dataset to try a training stage without waiting for your own data recording. You can
+save time to ensure that your remote machine is correctly set up and ready for training.
 
-### 🖥️ Setup for Recording on Windows
+The toy dataset can be found [here on Hugging Face](https://huggingface.co/datasets/DEEL-AI/Hackathon_Team0Z)
+and can be used in the training command line using argument
+`--dataset.repo_id=DEEL-AI/Hackathon_Team0Z`.
 
-**1. Install FFmpeg**
+All instructions and tips for training are given in [training.md](./training.md).
 
-Open PowerShell and run:
-```shell
-winget install ffmpeg
-```
+## 5. Inference
 
-**2. Clone the Repository**
+To run inference on your local machine, you first need to get your trained checkpoints.
+If you want to get them from the remote machine, you can use scp:
 
 ```shell
-git clone git@github.com:deel-ai/lerobot-hackathon.git
-cd lerobot-hackathon
+scp -r username@remote_machine://output_dir/train/act_so101_test/checkpoints/last C:\path\to\outputs\train\act_so101_test\checkpoints
 ```
 
-**3. Create and Activate Conda Environment**
+Then, using your local environment setup, you can run:
 
 ```shell
-conda create -y -n lerobot python=3.10
-conda activate lerobot
-```
-
-**4. Install PyTorch with the correct CUDA version**
-
-First, check your CUDA version using the command:
-
-```bash
-nvidia-smi
-```
-
-Then, install torch and torchvision for the corresponding CUDA version by following the official [PyTorch installation guide](https://pytorch.org/get-started/locally/).
-
-For example, if your CUDA version is 12.4, run:
-
-```bash
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
-```
-
-**5. Install Dependencies**
-
-```shell
-pip install -e .
-pip install -e ".[feetech]"
-```
-
-#### 🔧 Robot Calibration
-
-Calibration ensures that leader and follower arms map correctly.  
-A well-calibrated robot allows a model trained on one setup to generalize to another.
-
-1. Connect the Arms
-- Power both arms.
-- Use **USB-C → USB-A** cables to connect arms to your PC.
-- Always use the same USB ports for consistency.
-
-Find the port names:
-
-```shell
-lerobot-find-port
-```
-
-Example output:
-
-```shell
-Finding all available ports for the MotorBus.
-['COM4', 'COM5']
-Remove the USB cable from your MotorsBus and press Enter when done.
-
-[...Disconnect corresponding leader or follower arm and press Enter...]
-
-The port of this MotorsBus is 'COM4'
-Reconnect the USB cable.
-```
-
-In our example, if you disconnected the leader arm, then the leader arm is on `'COM4'` and the follower `'COM5'`.
-
-Remember it, as it will have its importance when you will operate.
-
-2. Calibrate the Follower Arm
-
-```shell
-lerobot-calibrate \
-    --robot.type=so101_follower \
-    --robot.port='COM5' \ # <- The port of your robot
-    --robot.id=follower_idontheetiquette  \ # <- Give the robot a unique name
-    --robot.calibration_dir="path\to\lerobot-hackathon\calibration\robots\so101_follower"
-```
-
-> [!NOTE]
-> Using Powershell you should replace the " \ " with "`", and using the shell with "^"
-
-For the calibration itself, the easiest is to follow the video in the dedicated section in this [tutorial](https://huggingface.co/docs/lerobot/so101#calibrate).
-
-Your file will be saved in your calibration dir with the name "follower_idontheetiquette.json". 
-This is interesting as once a calibration has been properly done you can share it with member of your teams without the need of doing the calibration again.
-
-3. Calibrate the Leader Arm
-
-```shell
-lerobot-calibrate \
-    --teleop.type=so101_leader \
-    --teleop.port='COM4' # <- The port of your robot
-    --teleop.id=leader_idontheetiquette # <- Give the robot a unique name
-    --teleop.calibration_dir="path\to\lerobot-hackathon\calibration\teleoperators\so101_leader"
-```
-
-> [!NOTE]
-> The `--robot` flag is for the **follower** and `--teleop` for the **leader** arm.
-
-4. Test Calibration
-
-While having your hands on the **leader** arm:
-
-```shell
-lerobot-teleoperate \
-    --robot.type=so101_follower \
-    --robot.port="COM5" \
-    --robot.id="follower_f0" \
-    --robot.calibration_dir="path\to\lerobot-hackathon\calibration\robots\so101_follower" \
-    --teleop.type=so101_leader \
-    --teleop.port="COM4" \
-    --teleop.id="leader_l0" \
-    --teleop.calibration_dir="path\to\lerobot-hackathon\calibration\teleoperators\so101_leader" \
-    --display_data=true
-```
-
-A `rerun.io` window should open. The follower arm must match the leader precisely. In case of lags, trying killing unnecessary processes.  
-If it is still not working → **redo calibration**.
-
-> [!WARNING]
-> **Move joints slowly during calibration.** Fast manual motions can trigger motor faults or overheating protection, which may later cause detection issues during teleop/record/inference.
-
-> [!WARNING]
-> **Troubleshooting — Motors blinking red / not detected.** 
->
-> If a motor LED blinks red or a motor is not detected when starting teleoperation, recording, or inference, it may be an overheating protection state (see related discussion in the LeRobot repo, [issue #441](https://github.com/huggingface/lerobot/issues/441)).
->
-> **Quick fix that worked for us:**
-> 1. Power off the affected arm (disconnect the arm’s power).
-> 2. Wait a few seconds.
-> 3. Power it back on and retry.
-
-#### 🎥 Adding Cameras
-
-1. Plug cameras into your computer.
-
-A dock might be needed to have enough port and to have your computer charging.
-
-2. Identify them:
-
-```shell
-lerobot-find-cameras opencv
-```
-Example output:
-```shell
---- Detected Cameras ---
-Camera #0:
-  Name: OpenCV Camera @ 0
-  Type: OpenCV
-  Id: 0
-  Backend api: AVFOUNDATION
-  Default stream profile:
-    Format: 16.0
-    Width: 1920
-    Height: 1080
-    Fps: 15.0
---------------------
-(more cameras ...)
-```
-
-> [!NOTE]
-> This identifier might change if you reboot your computer or re-plug your camera, a behavior mostly dependant on your operating system.
-
-3. Match IDs with physical placement by checking saved images in:
-
-```shell
-repository_dir/outputs/captured_images
-```
-Let's say that `opencv_0.png` is a camera positioned on the left of our robot and `opencv_2.png` correspond to a camera positioned
-in front of it.
-
-4. Example teleoperation with two cameras:
-```shell
-lerobot-teleoperate \
-    --robot.type=so101_follower \
-    --robot.port="COM5" \
-    --robot.id="follower_f0" \
-    --robot.calibration_dir="path\to\lerobot-hackathon\calibration\robots\so101_follower" \
-    --robot.cameras="{ left: {type: opencv, index_or_path: 0, width: 640, height: 480, fps: 30},  front: {type: opencv, index_or_path: 2, width: 640, height: 480, fps: 30}}" ^ # <-- Your setting
-    --teleop.type=so101_leader \
-    --teleop.port="COM4" \
-    --teleop.id="leader_l0" \
-    --teleop.calibration_dir="path\to\lerobot-hackathon\calibration\teleoperators\so101_leader" \
-    --display_data=true
-```
-
-> [!TIP]
-> **Performance & latency:** We strongly recommend 480p (width=640, height=480) for each camera.  
-> With 2 cameras at ≥720p, we observed choppy teleoperation/inference that severely hurts success rates. 480p keeps streams smooth while preserving enough detail for the task.
-
-You should now "see" what your robots is seeing in the `rerun.io` window. It will be useful to use that vision before actually recording data to place them as you wish.
-
-#### 🎙️ Recording Data
-Once you are happy with your installation setting, you are now ready to record data. 
-
-Each team should create a Hugging Face dataset repo:  
-`DEEL-AI/Hackathon_TeamXX`
-
-> [!NOTE]
-> If you do not have the rights to write for the DEEL-AI organization please come see us! 
-
-**Keyboard Shortcuts During Recording**
-
-Before running the recording command, it’s useful to know the available shortcuts:
-
-- Redo a recording
-    If you consider the current attempt low-quality, press ← (left arrow).
-    - This gives you time to reset the environment and place the robot back in its initial position.
-    - Once ready, press → (right arrow) to start recording again.
-
-- Save a recording
-    When you’re satisfied with an episode and have placed the robot in its final position, press → (right arrow).
-    - This saves the episode.
-    - You then have time to reset the environment before pressing → (right arrow) again to start the next episode.
-
-> [!NOTE]
-> A practical shortcut: if you’re happy with a recording, simply double-press the right arrow. The saving process takes long enough to let you reset the environment before the next episode starts.
-
-The command to record:
-
-```shell
-lerobot-record \
-    --robot.type=so101_follower \
-    --robot.port='COM5' \
-    --robot.id=follower_f0 \
-    --robot.calibration_dir="path\to\lerobot-hackathon\calibration\robots\so101_follower" \
-    --teleop.type=so101_leader \
-    --teleop.port='COM4' \
-    --teleop.id=leader_l0 \
-    --teleop.calibration_dir="path\to\lerobot-hackathon\calibration\teleoperators\so101_leader" \
-    --display_data=true \
-    --robot.cameras="{ left: {type: opencv, index_or_path: 0, width: 640, height: 480, fps: 30},  front: {type: opencv, index_or_path: 2, width: 640, height: 480, fps: 30}}"  \ # <-- Change with your setting
-    --dataset.root='path_to_locally_save_the_ds' \
-    --dataset.repo_id='DEEL-AI/Hackathon_TeamXX' \
-    --dataset.num_episodes=25 \ # Number of episodes you will record at once
-    --dataset.single_task="Pick and place one green cube on the cell indicated by the card on a 2×2 grid." \ # <-- can be adapted but most follow the guidelines in the dataset section
-    --dataset.push_to_hub=True \
-    --resume=false \ # <-- Set to true once it has been initialized
-```
-
-> [!WARNING]
-> Change `--resume` to `true` **after your first recording**.
-
-> [!NOTE]
-> You can change the `--dataset.single_task` to change the command prompt. For example "Pick and place one green cube on the top-left cell of a 2×2 grid (as shown on the card)."
-
-**BEFORE RECORDING**, take a look at the [dataset guidelines](#guidelines-for-collecting-data).
-
-### 🖥️ Setup for Training with DEEL's machines
-
-1. Create environment:
-```shell
-conda create -y -n lerobot python=3.10
-conda activate lerobot
-```
-
-2. Install FFmpeg:
-```shell
-conda install ffmpeg=7.1.1 -c conda-forge
-```
-
-Checks that when you do:
-```shell
-which ffmpeg
-```
-
-Outputs looks like:
-```shell
-/home/lucas.hervier/.conda/envs/lerobot/bin/ffmpeg
-```
-
-And that you see `libsvtav1` in the list of the output of the following command:
-```shell
-ffmpeg -encoders
-```
-
-3. Clone & install repo:
-```shell
-git clone git@github.com:deel-ai/lerobot-hackathon.git
-cd lerobot-hackathon
-pip install -e .
-```
-
-4. Authenticate:
-```shell
-hf auth login
-wandb login
-```
-
-> [!NOTE]
-> Make sure that you use a token with the right permissions
-
-5. Download dataset:
-```shell
-hf download DEEL-AI/Hackathon_TeamXX --repo-type dataset
-```
-
-#### Training with ACT
-
-```shell
-CUDA_VISIBLE_DEVICES=id_of_your_gpu lerobot-train \
-  --dataset.repo_id=DEEL-AI/Hackathon_TeamXX \
-  --policy.type=act \
-  --output_dir=/output_dir_with_space/train/act_so101_test \
-  --job_name=act_so101_test \
-  --policy.device=cuda \
-  --policy.push_to_hub=false \
-  --batch_size=64 \
-  --save_freq=10000 \
-  --steps=100000 \
-  --wandb.enable=true \
-  --wandb.disable_artifact=true
-```
-
-As a test you can run the following script with `dataset.repo_id=DEEL-AI/Hackathon_Team0Z`. (Don't forget to download it with `hf download DEEL-AI/Hackathon_Team0Z --repo-type dataset`)
-
-For this test I voluntarily set a low number of steps and a saving frequency that is low. **However, having such a low frequency will fill up space quickly so be mindful of this parameter**.
-
-ACT come with default values for `steps` and `save_freq`. It is up to you to check if the are those you want to use.
-
-If you want to resume a training:
-
-```shell
-lerobot-train \
-  --config_path=/output_dir_with_space/train/outputs/act_so101_test/checkpoints/last/pretrained_model/train_config.json \
-  --resume=true \
-  --policy.device=cuda \
-  --policy.push_to_hub=false \
-  --steps=200000 \
-  --wandb.enable=true \
-  --wandb.disable_artifact=true
-```
-
-> [!WARNING]
-> Here `--steps` is not the number of additional steps you want to do. It is the number of steps it must reach from the CKPT step you provided.
-
-
-#### Training with SmolVLA
-
-Additionnally to finetune SmolVLA:
-
-```shell
-pip install -e ".[smolvla]"
-```
-
-Finally **check your pytorch version** and use `set_cuda_version` with matching distributions.
-
-Then:
-
-```shell
-lerobot-train \
-  --policy.path=cijerezg/smolvla-test \
-  --dataset.repo_id=DEEL-AI/Hackathon_TeamXX \
-  --output_dir=/output_dir_with_space/train/smolvla_so101_test \
-  --job_name=smolvla_so101_test \
-  --policy.device=cuda \
-  --policy.push_to_hub=false \
-  --batch_size=64 \
-  --steps=20000 \
-  --save_freq=5000 \
-  --wandb.enable=true \
-  --wandb.disable_artifact=true
-```
-
-As a test you can run the following script with `dataset.repo_id=DEEL-AI/Hackathon_Team0Z`
-
-To resume training it is the same as for ACT:
-
-```shell
-lerobot-train \
-  --config_path=/output_dir_with_space/train/outputs/smolvla_so101_test/checkpoints/last/pretrained_model/train_config.json \
-  --resume=true \
-  --policy.device=cuda \
-  --policy.push_to_hub=false \
-  --steps=40000 \
-  --wandb.enable=true \
-  --wandb.disable_artifact=true
-```
-
-### Inference on Windows
-
-To run inference on your PC, you first need to get your trained checkpoints.
-If you want to get them from the DEEL's machines you can use scp:
-
-```shell
-scp -r username@deelXX://output_dir_with_space/train/act_so101_test/checkpoints/last C:\path\to\outputs\train\act_so101_test\checkpoints
-```
-
-Then, if you have the environment as build in the [recording section](#setup-for-recording-with-a-windows-machine) you can run:
-
-```shell
-lerobot-record  ^
+lerobot-record  \
     --robot.type=so101_follower \
     --robot.port='COM5' \
     --robot.id=follower_f0 \
@@ -564,10 +163,10 @@ lerobot-record  ^
     --teleop.id=leader_l0 \
     --teleop.calibration_dir="path\to\lerobot-hackathon\calibration\teleoperators\so101_leader" \
     --display_data=true \
-    --dataset.single_task="Pick and place one green cube on the cell indicated by the card on a 2×2 grid." ^
-    --dataset.root='./eval_hackathon_9_cubes_v1' ^
-    --dataset.repo_id='DEEL-AI/eval_Hackathon_TeamXX' ^
-    --dataset.push_to_hub=false ^
+    --dataset.single_task="Pick and place one green cube on the cell indicated by the card on a 2×2 grid." \
+    --dataset.root='./eval_hackathon_9_cubes_v1' \
+    --dataset.repo_id='DEEL-AI/eval_Hackathon_TeamXX' \
+    --dataset.push_to_hub=false \
     --policy.path="C:\path\to\outputs\train\act_so101_test\checkpoints\last\pretrained_model"
 ```
 
@@ -580,79 +179,3 @@ The keyboard shortcuts behave the same way as during recording, except you won�
 For testing, we provide a sample policy that you can run before training your own. Its behavior may be erratic, but it’s useful for verifying that inference is working correctly.
 
 ✅ You are now fully set up and ready to record, train, and run inference!
-
-## Datasets
-
-### Guidelines for collecting data
-
-From this [HF blog post](https://huggingface.co/blog/lerobot-datasets) (but we changed the resolution tip):
-
-<img width="1414" height="2000" alt="updated_dataset_recommendations" src="https://github.com/user-attachments/assets/f165feed-7ee3-4643-8cf1-f8cc4abf9fe4" />
-
-
-### Available on the Hugging Face Hub
-
-Browse all datasets: [HF Datasets](https://huggingface.co/datasets?other=LeRobot&sort=trending)
-
-**Visualize a LeRobot Dataset**
-Use the interactive tool: [HF Robot Viz Space](https://huggingface.co/spaces/lerobot/visualize_dataset)
-
-You can also use the local commands as described here:
-
-- Visualize data stored on a local machine:
-```
-local$ lerobot-dataset-viz \
-    --repo-id lerobot/pusht \
-    --episode-index 0
-```
-
-- Visualize data stored on a distant machine with a local viewer:
-```
-distant$ lerobot-dataset-viz \
-    --repo-id lerobot/pusht \
-    --episode-index 0 \
-    --save 1 \
-    --output-dir path/to/directory
-
-local$ scp distant:path/to/directory/lerobot_pusht_episode_0.rrd .
-local$ rerun lerobot_pusht_episode_0.rrd
-```
-
-- Visualize data stored on a distant machine through streaming:
-(You need to forward the websocket port to the distant machine, with
-`ssh -L 9087:localhost:9087 username@remote-host`)
-```
-distant$ lerobot-dataset-viz \
-    --repo-id lerobot/pusht \
-    --episode-index 0 \
-    --mode distant \
-    --ws-port 9087
-
-local$ rerun ws://localhost:9087
-```
-
-## TODO
-
-### Logistics
-- [x] At least 1 core member with a full setup per team (7/7)
-- [x] Make cross-validation of produced code
-- [x] Build the teams
-- [x] 4 Developers
-- [x] 4 Testers
-
-### Hardware
-- [x] Print all the Leader (7/7)
-- [x] Print all the Follower (7/7)
-- [x] Prepare a notice to be able to calibrate arms correctly
-- [x] Prepare a notice to set machines to record data
-- [x] Print parts for the Camera
-- [x] Prepare the WoodBoards (7/7)
-
-### Datasets
-- [x] Define the best way to handle the generated datasets (per team)
-- [x] Make utils code to ease the dataset manipulation
-
-### Training
-- [x] Make utils code to train using ACT on DEEL's machine
-- [x] Make utils code to finetune SmolVLA
-- [x] Prepare a notice to train on a custom dataset with the defined dataset's strategy 
